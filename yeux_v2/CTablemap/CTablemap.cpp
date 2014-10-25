@@ -4,14 +4,6 @@
 #include "CTablemap.h"
 #include "../CTransform/CTransform.h"
 
-#ifdef OPENHOLDEM_PROGRAM
-#include "../OpenHoldem/debug.h"
-#endif
-
-#ifdef OPENSCRAPE_PROGRAM
-#include "../OpenScrape/debug.h"
-#endif
-
 CTablemap			*p_tablemap = NULL;
 
 CTablemap::CTablemap(void)

@@ -4,14 +4,6 @@
 #include "MagicNumbers.h"
 #include "CTransform.h"
 
-#ifdef OPENHOLDEM_PROGRAM
-#include "../OpenHoldem/debug.h"
-#endif
-
-#ifdef OPENSCRAPE_PROGRAM
-#include "../OpenScrape/debug.h"
-#endif
-
 CTransform::CTransform(void)
 {
 }

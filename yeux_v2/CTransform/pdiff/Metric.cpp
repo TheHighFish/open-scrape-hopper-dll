@@ -317,11 +317,11 @@ bool Yee_Compare(CompareArgs &args)
     delete[] bLum;
   }  
   if (la) {
-    log_delete(3);
+    log_delete(1);
     delete la;
   }
 	if (lb) {
-    log_delete(3);
+    log_delete(2);
     delete lb;
   }
 	if (aA) {

@@ -24,6 +24,7 @@ void CTablemap::ClearIMap()
 	{
 		// First value in the map is some index, internally created in i$_insert()
 		// Second value in the map is our image.
+    log_delete(7);
 		delete iter->second.image;
 	}
 	// Remove the contents of the map.
@@ -535,6 +536,7 @@ int CTablemap::LoadTablemap(const char *_filename, const char *version, const bo
 
 			// Allocate space for "RGBAImage"
 			t = hold_image.name + ".ppm";
+      log_malloc(7);
 			hold_image.image = new RGBAImage(hold_image.width, hold_image.height, t.GetString());
 
 			// read next "height" lines
@@ -1129,6 +1131,7 @@ uint32_t CTablemap::CalculateHashValue(IMapCI i_iter, const int type)
 // Creates the 32bit hash for an image record using name and pixels
 uint32_t CTablemap::CreateI$Index(const CString name, const int width, const int height, const uint32_t *pixels)
 {
+  log_malloc(6);
 	uint32_t *uints = new uint32_t[MAX_HASH_WIDTH*MAX_HASH_HEIGHT + name.GetLength()];
 	int c = 0, i = 0;
 
@@ -1142,6 +1145,7 @@ uint32_t CTablemap::CreateI$Index(const CString name, const int width, const int
 
 	uint32_t index = hashword(&uints[0], height * width + name.GetLength(), 0x71e9ff36);
 
+  log_delete(6);
 	delete [] uints;
 
 	return index;

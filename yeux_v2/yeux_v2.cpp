@@ -40,10 +40,22 @@ CLobbyScraper::CLobbyScraper()
 
 CLobbyScraper::~CLobbyScraper()
 {
+  UnloadTableMap();
+}
+
+void CLobbyScraper::UnloadTableMap() {
+  if (p_tablemap) {
+    // First fixed memory-leak
+    log_delete(0);
+    delete p_tablemap;
+    p_tablemap = NULL;
+  }
 }
 
 bool CLobbyScraper::Load(CString filename)
 {
+  UnloadTableMap();
+  log_malloc(0);
   p_tablemap = new CTablemap();
 	int line = 0;
 	int ret = p_tablemap->LoadTablemap(filename, VER_OPENSCRAPE_2, false, &line, false);

@@ -32,6 +32,7 @@ LPyramid::LPyramid(float *image, int width, int height) :
 		if (i == 0) {
 			Levels[i] = Copy(image);
 		} else {
+      log_malloc(4);
 			Levels[i] = new float[Width * Height];
 			Convolve(Levels[i], Levels[i - 1]);
 		}
@@ -41,13 +42,17 @@ LPyramid::LPyramid(float *image, int width, int height) :
 LPyramid::~LPyramid()
 {
 	for (int i=0; i<MAX_PYR_LEVELS; i++) {
-		if (Levels[i]) delete Levels[i];
+		if (Levels[i]) {
+      log_delete(4); 
+      delete Levels[i];
+    }
 	}
 }
 
 float *LPyramid::Copy(float *img)
 {
 	int max = Width * Height;
+  log_malloc(4);
 	float *out = new float[max];
 	for (int i = 0; i < max; i++) out[i] = img[i];
 	

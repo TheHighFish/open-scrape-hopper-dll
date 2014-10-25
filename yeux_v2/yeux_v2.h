@@ -27,6 +27,7 @@ public:
 	CLobbyScraper();
 	~CLobbyScraper();
 	bool Load(CString filename);
+  void UnloadTableMap();
 	bool GetSymbol(const CString name, CString& text) ;
 	bool ProcessRegion(RMapCI r_iter);
 	bool ReadRegion(HWND hwnd, const CString name, char* & result, int ofsx=0, int ofsy=0) ;

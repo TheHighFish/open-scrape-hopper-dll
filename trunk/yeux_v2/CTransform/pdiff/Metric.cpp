@@ -148,18 +148,30 @@ bool Yee_Compare(CompareArgs &args)
 	}
 	
 	// assuming colorspaces are in Adobe RGB (1998) convert to XYZ
+	log_malloc(3);
 	float *aX = new float[dim];
+  log_malloc(3);
 	float *aY = new float[dim];
+  log_malloc(3);
 	float *aZ = new float[dim];
+  log_malloc(3);
 	float *bX = new float[dim];
+  log_malloc(3);
 	float *bY = new float[dim];
+  log_malloc(3);
 	float *bZ = new float[dim];
+  log_malloc(3);
 	float *aLum = new float[dim];
+  log_malloc(3);
 	float *bLum = new float[dim];
 	
+  log_malloc(3);
 	float *aA = new float[dim];
+  log_malloc(3);
 	float *bA = new float[dim];
+  log_malloc(3);
 	float *aB = new float[dim];
+  log_malloc(3);
 	float *bB = new float[dim];
 
 	if (args.Verbose) printf("Converting RGB to XYZ\n");
@@ -187,8 +199,9 @@ bool Yee_Compare(CompareArgs &args)
 	}
 	
 	if (args.Verbose) printf("Constructing Laplacian Pyramids\n");
-	
+	log_malloc(1);
 	LPyramid *la = new LPyramid(aLum, w, h);
+	log_malloc(2);
 	LPyramid *lb = new LPyramid(bLum, w, h);
 	
 	float num_one_degree_pixels = (float) (2 * tan( args.FieldOfView * 0.5 * M_PI / 180) * 180 / M_PI);
@@ -267,31 +280,66 @@ bool Yee_Compare(CompareArgs &args)
 		}
 		if (!pass) {
 			pixels_failed++;
-//			if (args.ImgDiff) {
-//				args.ImgDiff->Set(255, 0, 0, 255, index);
-//			}
-		} else {
-//			if (args.ImgDiff) {
-//				args.ImgDiff->Set(0, 0, 0, 255, index);
-//			}
-		}
+		} 
 	  }
 	}
 	
-	if (aX) delete[] aX;
-	if (aY) delete[] aY;
-	if (aZ) delete[] aZ;
-	if (bX) delete[] bX;
-	if (bY) delete[] bY;
-	if (bZ) delete[] bZ;
-	if (aLum) delete[] aLum;
-	if (bLum) delete[] bLum;
-	if (la) delete la;
-	if (lb) delete lb;
-	if (aA) delete aA;
-	if (bA) delete bA;
-	if (aB) delete aB;
-	if (bB) delete bB;
+	if (aX) {
+    log_delete(3);
+    delete[] aX;
+  }
+	if (aY) {
+    log_delete(3);
+    delete[] aY;
+  }
+	if (aZ) {
+    log_delete(3);
+    delete[] aZ;
+  }
+	if (bX) {
+    log_delete(3);
+    delete[] bX;
+  }
+	if (bY) {
+    log_delete(3);
+    delete[] bY;
+  }
+	if (bZ) {
+    log_delete(3);
+    delete[] bZ;
+  }
+	if (aLum) {
+    log_delete(3);
+    delete[] aLum;
+  }
+	if (bLum) {
+    log_delete(3);
+    delete[] bLum;
+  }  
+  if (la) {
+    log_delete(3);
+    delete la;
+  }
+	if (lb) {
+    log_delete(3);
+    delete lb;
+  }
+	if (aA) {
+    log_delete(3);
+    delete aA;
+  }
+	if (bA) {
+    log_delete(3);
+    delete bA;
+  }
+	if (aB) {
+    log_delete(3);
+    delete aB;
+  }
+	if (bB) {
+    log_delete(3);
+    delete bB;
+  }
 	
 	args.PixelsFailed = pixels_failed;
 	return true;

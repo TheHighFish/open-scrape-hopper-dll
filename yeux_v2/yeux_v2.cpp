@@ -41,6 +41,7 @@ CLobbyScraper::CLobbyScraper()
 CLobbyScraper::~CLobbyScraper()
 {
   UnloadTableMap();
+  print_log_to_file();
 }
 
 void CLobbyScraper::UnloadTableMap() {

@@ -20,7 +20,7 @@ const int kMaxObjectTypesToLog = 100;
 int n_allocations[kMaxObjectTypesToLog];
 int n_releases[kMaxObjectTypesToLog];
 
-const char *log_filename = "C:\\memory.log";
+const char *log_filename = "memory.log";
 
 void log_malloc(int object_type) {
   if (object_type < 0) return;
@@ -39,7 +39,7 @@ void print_log_to_file() {
   // Open file in append-mode
   memory_log_file = fopen(log_filename, "a");
   if (memory_log_file == NULL) {
-    MessageBox(0, "Can't open C:\\memory.log for writing", "ERROR", 0);  
+    MessageBox(0, "Can't open \"memory.log\" for writing", "ERROR", 0);  
     return;
   }
   fprintf(memory_log_file, "Type    Allocationss        Releases\n");

@@ -77,7 +77,7 @@ const int CTransform::CTypeTransform(RMapCI region, const HDC hdc, CString *text
 
 	// Get the actual argb bit information
 	bmi->bmiHeader.biHeight = -bmi->bmiHeader.biHeight;
-  log_malloc(5);
+  log_malloc(10);
 	pBits = new BYTE[bmi->bmiHeader.biSizeImage];
 	::GetDIBits(hdc, hbm, 0, height, pBits, bmi, DIB_RGB_COLORS);
 
@@ -122,7 +122,7 @@ const int CTransform::CTypeTransform(RMapCI region, const HDC hdc, CString *text
 
 	// Clean up
 	HeapFree(GetProcessHeap(), NULL, bmi);
-  log_delete(5);
+  log_delete(10);
 	delete []pBits;
 
 	return ERR_GOOD_SCRAPE_GENERAL;
@@ -174,13 +174,13 @@ const int CTransform::ITypeTransform(RMapCI region, const HDC hdc, CString *text
 
 	// Get the actual argb bit information
 	bmi->bmiHeader.biHeight = -bmi->bmiHeader.biHeight;
-  log_malloc(5);
+  log_malloc(11);
 	pBits = new BYTE[bmi->bmiHeader.biSizeImage];
 	::GetDIBits(hdc, hbm, 0, height, pBits, bmi, DIB_RGB_COLORS);
 
 
 	// load ImgA with current pixels from region
-  log_malloc(5);
+  log_malloc(20);
 	args.ImgA = new RGBAImage(width, height, "imga.ppm");
 	for (y = 0; y < height; y++) 
 	{
@@ -237,7 +237,7 @@ const int CTransform::ITypeTransform(RMapCI region, const HDC hdc, CString *text
 
 	// Clean up
 	HeapFree(GetProcessHeap(), NULL, bmi);
-  log_delete(5);
+  log_delete(11);
 	delete []pBits;
 
 	return retval;
@@ -281,7 +281,7 @@ const int CTransform::HTypeTransform(RMapCI region, const HDC hdc, CString *text
 
 	// Get the actual argb bit information
 	bmi->bmiHeader.biHeight = -bmi->bmiHeader.biHeight;
-  log_malloc(5);
+  log_malloc(12);
 	pBits = new BYTE[bmi->bmiHeader.biSizeImage];
 	::GetDIBits(hdc, hbm, 0, height, pBits, bmi, DIB_RGB_COLORS);
 
@@ -342,7 +342,7 @@ const int CTransform::HTypeTransform(RMapCI region, const HDC hdc, CString *text
 
 	// Clean up
 	HeapFree(GetProcessHeap(), NULL, bmi);
-  log_delete(5);
+  log_delete(12);
 	delete []pBits;
 
 	return retval;
@@ -398,7 +398,7 @@ const int CTransform::TTypeTransform(RMapCI region, const HDC hdc, CString *text
 
 	// Get the actual argb bit information
 	bmi->bmiHeader.biHeight = -bmi->bmiHeader.biHeight;
-  log_malloc(5);
+  log_malloc(13);
 	pBits = new BYTE[bmi->bmiHeader.biSizeImage];
 	::GetDIBits(hdc, hbm, 0, height, pBits, bmi, DIB_RGB_COLORS);
 	
@@ -435,7 +435,7 @@ const int CTransform::TTypeTransform(RMapCI region, const HDC hdc, CString *text
 
 	// Clean up
 	HeapFree(GetProcessHeap(), NULL, bmi);
-  log_delete(5);
+  log_delete(13);
 	delete []pBits;
 
 	// Save separation information

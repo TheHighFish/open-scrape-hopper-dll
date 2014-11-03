@@ -31,7 +31,7 @@ void log_malloc(int object_type) {
 void log_delete(int object_type) {
   if (object_type < 0) return;
   if (object_type >= kMaxObjectTypesToLog) return;
-  n_releases[object_type];
+  ++n_releases[object_type];
 }
 
 void print_log_to_file() {

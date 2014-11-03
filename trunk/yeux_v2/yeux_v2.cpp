@@ -56,6 +56,13 @@ void CLobbyScraper::UnloadTableMap() {
 bool CLobbyScraper::Load(CString filename)
 {
   UnloadTableMap();
+  if (p_tablemap != NULL) {
+    // Release p_tablemap first before (re)allocation,
+    // otherwise we get a memory_leak
+    log_delete(0);
+    delete p_tablemap;
+    p_tablemap = NULL;
+  }
   log_malloc(0);
   p_tablemap = new CTablemap();
 	int line = 0;

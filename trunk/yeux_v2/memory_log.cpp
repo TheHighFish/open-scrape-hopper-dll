@@ -45,7 +45,7 @@ void print_log_to_file() {
   fprintf(memory_log_file, "Type    Allocationss        Releases\n");
   fprintf(memory_log_file, "====================================\n");
   for (int i=0; i<kMaxObjectTypesToLog; ++i) {
-    if (n_allocations[i] <= 0) {
+    if ((n_allocations[i] <= 0) && (n_releases[i] <= 0)) {
       // Skip unused types
       continue;
     }

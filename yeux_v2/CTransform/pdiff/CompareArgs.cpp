@@ -56,7 +56,7 @@ CompareArgs::CompareArgs()
 CompareArgs::~CompareArgs()
 {
 	if (ImgA) {
-    log_delete(5);
+    log_delete(20);
     delete ImgA;
   }
 	if (ImgB) {

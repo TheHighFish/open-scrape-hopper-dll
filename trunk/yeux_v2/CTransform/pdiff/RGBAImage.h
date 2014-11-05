@@ -18,6 +18,7 @@ if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330,
 #define _RGBAIMAGE_H
 
 #include <string>
+#include "memory_log.h"
 
 // assumes data is in the ABGR format
 class RGBAImage
@@ -28,9 +29,15 @@ public:
 		Width = w;
 		Height = h;
 		if (name) Name = name;
+    log_malloc(30);
 		Data = new unsigned int[w * h];
 	};
-	~RGBAImage() { if (Data) delete[] Data; }
+	~RGBAImage() { 
+    if (Data) {
+      log_delete(30);
+      delete[] Data; 
+    }
+  }
 	unsigned char Get_Red(unsigned int i) { return (Data[i] & 0xFF); }
 	unsigned char Get_Green(unsigned int i) { return ((Data[i]>>8) & 0xFF); }
 	unsigned char Get_Blue(unsigned int i) { return ((Data[i]>>16) & 0xFF); }

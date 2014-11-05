@@ -45,7 +45,6 @@ public:
 								 int *x_begin, int *x_end, int *y_begin, int *y_end);
 	const void CalcHexmash(const int left, const int right, const int top, const int bottom, 
 						   const bool (*ch)[MAX_CHAR_HEIGHT], CString *hexmash, const bool withspace=false);
-	const double StringToMoney(const CString str);
 
 private:
 	// private functions and variables - not available via accessors or mutators
@@ -61,7 +60,6 @@ private:
 								  const bool bg[], const bool (*ch)[MAX_CHAR_HEIGHT], const int left, 
 								  const double tolerance);
 	const int CalcHammingDistance(const unsigned int x, const unsigned int y);
-
 };
 
 int	bitcount(unsigned int u);

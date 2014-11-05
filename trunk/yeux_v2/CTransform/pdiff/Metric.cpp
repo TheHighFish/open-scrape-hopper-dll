@@ -343,30 +343,4 @@ bool Yee_Compare(CompareArgs &args)
 	
 	args.PixelsFailed = pixels_failed;
 	return true;
-
-/*
-	if (pixels_failed < args.ThresholdPixels) {
-		args.ErrorStr = "Images are perceptually indistinguishable\n";
-		return true;
-	}
-	
-	char different[100];
-	sprintf(different, "%d pixels are different\n", pixels_failed);
-
-	args.ErrorStr = "Images are visibly different\n";
-	args.ErrorStr += different;
-	
-	if (args.ImgDiff) {
-		if (args.ImgDiff->WritePPM()) {
-			args.ErrorStr += "Wrote difference image to ";
-			args.ErrorStr+= args.ImgDiff->Get_Name();
-			args.ErrorStr += "\n";
-		} else {
-			args.ErrorStr += "Could not write difference image to ";
-			args.ErrorStr+= args.ImgDiff->Get_Name();
-			args.ErrorStr += "\n";
-		}
-	}
-	return false;
-*/
 }

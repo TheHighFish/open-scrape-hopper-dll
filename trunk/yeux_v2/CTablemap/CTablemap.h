@@ -125,18 +125,6 @@ typedef std::map<uint32_t, STablemapImage> IMap;
 typedef IMap::iterator IMapI;
 typedef IMap::const_iterator IMapCI;
 
-struct SWholeMap
-{
-	const ZMap	*z$;
-	const SMap	*s$;
-	const RMap	*r$;
-	const TMap	*t$[4];
-	const PMap	*p$[4];
-	const HMap	*h$[4];
-	const IMap	*i$;
-	CString filepath;
-};
-
 extern class CTablemap 
 {
 public:

@@ -33,16 +33,14 @@ public:
 	void Print_Args();
 #endif
 	
-	RGBAImage		*ImgA;				// Image A
-	RGBAImage		*ImgB;				// Image B
-//	RGBAImage		*ImgDiff;			// Diff image
-	bool			Verbose;			// Print lots of text or not
-	float			FieldOfView;		// Field of view in degrees
-	float			Gamma;				// The gamma to convert to linear color space
-	float			Luminance;			// the display's luminance
-	unsigned int	ThresholdPixels;	// How many pixels different to ignore
-//	std::string		ErrorStr;			// Error string
-	unsigned int	PixelsFailed;		// Number of pixels that are perceptually different
+	RGBAImage		*ImgA;		 // Image A
+	RGBAImage		*ImgB;		 // Image B
+	bool			Verbose;		 // Print lots of text or not
+	float			FieldOfView; // Field of view in degrees
+	float			Gamma;			 // The gamma to convert to linear color space
+	float			Luminance;	 // the display's luminance
+	unsigned int	ThresholdPixels; // How many pixels different to ignore
+	unsigned int	PixelsFailed;		 // Number of pixels that are perceptually different
 };
 
 #endif

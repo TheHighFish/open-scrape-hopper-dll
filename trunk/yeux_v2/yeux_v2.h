@@ -32,14 +32,4 @@ public:
 	bool ProcessRegion(RMapCI r_iter);
 	bool ReadRegion(HWND hwnd, const CString name, char* & result, int ofsx=0, int ofsy=0) ;
 	void GetRegionPos(const CString name, int& posl, int& post, int& posr, int& posb) ;
-
-
-	//int Load(const CString filename);
-	
-	/*void GetRegionPos(const CString name, int& posx, int& posy) const;
-	bool GetRegion(const CString name, STablemapRegion& region) const;
-	bool GetSymbol(const CString name, CString& text) const;
-	bool ReadRegion(HBITMAP bmp, const CString name, CString& result, int ofsx=0, int ofsy=0) const;
-*/
-
 };

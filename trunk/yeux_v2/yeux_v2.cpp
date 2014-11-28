@@ -152,7 +152,6 @@ bool CLobbyScraper::ReadRegion(HWND hwnd, const CString name, char* &result, int
   DeleteDC(WinDC);
   DeleteDC(CopyDC);
   DeleteObject(subBmp);
-  //DeleteObject(bmp);
 
 	return ret!=-4;
 }
